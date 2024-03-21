@@ -22,7 +22,7 @@ def home(request):
 
     }
 
-    return render(request, 'predictions/home.html', context)
+    return render(request, 'index.html', context)
 
 
 @login_required
