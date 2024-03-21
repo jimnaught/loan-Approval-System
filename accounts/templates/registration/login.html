@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="pagebanner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bannerTitle text-left">
+                    <h2>Sign In</h2>
+                    <p>Sign in to get started<br>Don't have an account? <a href="{% url 'accounts:register' %}" style="color: #007bff">Sign Up</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page Banner -->
+
+<!-- Common Section -->
+<section class="commonSection contactPage">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="formArea">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <form method="post" class="contactFrom row" id="contactForm">
+                                {% if form.errors %}
+                                    <p style="color: red !important;">
+                                        {{ form.errors }}
+                                    </p>
+                                {% endif %}
+                                <div class="col-md-12">
+                                    {{form.username}}
+                                </div>
+                                <div class="col-md-12">
+                                    {{form.password}}
+                                </div>
+                                
+                                
+                                <div class="col-md-12">
+                                    {% csrf_token %}
+                                    <button name="submit" type="submit" id="con_submit" class="common_btn">Sign In</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

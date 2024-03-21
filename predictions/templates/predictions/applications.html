@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="pagebanner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bannerTitle text-left">
+                    <h2>Applications</h2>
+                    <p>Here's a list of your loan applications.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="commonSection contactPage">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="formArea" >
+                    <div class="row">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for application in applications %}
+                                        <tr>
+                                            <td>{{application.date_created|date:"d M, Y"}}</td>
+                                            <td>{{application.loan_amount}}</td>
+                                            <td>
+                                                <label class="badge badge-{% if application.status == 'Approved' %}success{% else %}danger{% endif %}">
+                                                    {{application.status}}
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
